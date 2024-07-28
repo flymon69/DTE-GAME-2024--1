@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://caj1t15niv3kb"]
+
+[ext_resource type="Script" path="res://scenes.gd" id="1_t7xux"]
+[ext_resource type="Texture2D" uid="uid://bjdm4ogw6i3b7" path="res://New Piskel-1.png (6).png" id="2_r35eu"]
+[ext_resource type="Texture2D" uid="uid://bep7dataqiotj" path="res://New Piskel-2.png (1).png" id="3_qrivc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhy5y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ds86n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r35eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qrivc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_t7xux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vhy5y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 3)
+scale = Vector2(0.0573731, 0.0541992)
+sprite_frames = SubResource("SpriteFrames_ds86n")
+autoplay = "default"
+frame_progress = 0.0812886
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
